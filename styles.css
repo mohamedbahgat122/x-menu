@@ -1,0 +1,1101 @@
+/* ========================================
+   Premium Dark Theme - Cafe Menu Styles
+   RTL Support for Arabic Language
+   ======================================== */
+
+/* CSS Variables for Theme Colors */
+:root {
+    --primary-bg: #0d0d0d;
+    --secondary-bg: #1a1a1a;
+    --card-bg: #242424;
+    --accent-gold: #c9a962;
+    --accent-gold-light: #e0c078;
+    --text-primary: #ffffff;
+    --text-secondary: #b3b3b3;
+    --text-muted: #808080;
+    --border-color: #333333;
+    --gradient-gold: linear-gradient(135deg, #c9a962 0%, #e0c078 100%);
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5);
+    --transition-fast: 0.2s ease;
+    --transition-normal: 0.3s ease;
+    --transition-slow: 0.4s ease;
+}
+
+/* Light Theme Variables */
+[data-theme="light"] {
+    --primary-bg: #f5f5f5;
+    --secondary-bg: #ffffff;
+    --card-bg: #ffffff;
+    --text-primary: #1a1a1a;
+    --text-secondary: #666666;
+    --text-muted: #999999;
+    --border-color: #e0e0e0;
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.15);
+}
+
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Cairo', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: var(--primary-bg);
+    color: var(--text-primary);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+#splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+    background-color: var(--primary-bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+#splash-screen .splash-logo {
+    width: 140px;
+    max-width: 70vw;
+    height: auto;
+    animation: splashPulse 1.8s ease-in-out infinite;
+}
+
+#splash-screen.explode-out {
+    transform: scale(4);
+    opacity: 0;
+    pointer-events: none;
+}
+
+@keyframes splashPulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.95;
+    }
+    50% {
+        transform: scale(1.06);
+        opacity: 1;
+    }
+}
+
+/* ========================================
+   Header Styles
+   ======================================== */
+.header {
+    background: linear-gradient(180deg, var(--secondary-bg) 0%, var(--primary-bg) 100%);
+    padding: 2rem 1rem;
+    text-align: center;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.brand-logo {
+    width: 18rem;
+    height: auto;
+    max-width: 100%;
+    display: block;
+}
+
+.logo-small {
+    width: 4rem;
+    height: auto;
+    max-width: 100%;
+    display: block;
+}
+
+.logo-icon {
+    font-size: 2.5rem;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.brand-name {
+    font-size: 2rem;
+    font-weight: 700;
+    background: var(--gradient-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: 1px;
+}
+
+.tagline {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+/* ========================================
+   Filter Section Styles
+   ======================================== */
+.filter-section {
+    padding: 1.5rem 1rem;
+    background-color: var(--secondary-bg);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: var(--shadow-sm);
+}
+
+.filter-container {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+/* ========================================
+   Search Input Styles
+   ======================================== */
+.search-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-input {
+    width: 220px;
+    padding: 0.75rem 2.5rem 0.75rem 1rem;
+    background-color: var(--card-bg);
+    border: 2px solid var(--border-color);
+    border-radius: 50px;
+    color: var(--text-primary);
+    font-family: inherit;
+    font-size: 0.95rem;
+    outline: none;
+    transition: all var(--transition-normal);
+}
+
+.search-input::placeholder {
+    color: var(--text-muted);
+}
+
+.search-input:focus {
+    border-color: var(--accent-gold);
+    box-shadow: 0 0 0 3px rgba(201, 169, 98, 0.2);
+}
+
+.search-icon {
+    position: absolute;
+    left: 1rem;
+    right: auto;
+    font-size: 1rem;
+    color: var(--text-muted);
+    pointer-events: none;
+    transition: color var(--transition-normal);
+}
+
+.search-input:focus + .search-icon {
+    color: var(--accent-gold);
+}
+
+.filter-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--card-bg);
+    border: 2px solid var(--border-color);
+    border-radius: 50px;
+    color: var(--text-secondary);
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+}
+
+.filter-btn:hover {
+    border-color: var(--accent-gold);
+    color: var(--accent-gold-light);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.filter-btn.active {
+    background: var(--gradient-gold);
+    border-color: var(--accent-gold);
+    color: var(--primary-bg);
+}
+
+.filter-btn.active:hover {
+    color: var(--primary-bg);
+}
+
+/* ========================================
+   Sub-category Filter Bar Styles - Mobile QR Optimized
+   ======================================== */
+.subcategory-bar {
+    max-width: 900px;
+    margin: 1rem auto 0;
+    display: none;
+    align-items: center;
+    position: relative;
+    padding: 0 0.5rem;
+}
+
+.subcategory-bar.visible {
+    display: flex;
+    animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Scroll Arrows - Elegant floating circular buttons */
+.scroll-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--card-bg);
+    border: 1px solid var(--accent-gold);
+    border-radius: 50%;
+    color: var(--accent-gold);
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    z-index: 10;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    padding: 0;
+}
+
+.scroll-arrow:hover {
+    background: var(--gradient-gold);
+    color: var(--primary-bg);
+    border-color: var(--accent-gold);
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+.scroll-arrow:active {
+    transform: translateY(-50%) scale(0.95);
+}
+
+.scroll-arrow.disabled {
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+}
+
+.scroll-arrow-left {
+    left: 4px;
+}
+
+.scroll-arrow-right {
+    right: 4px;
+}
+
+/* Scroll Wrapper with Fade Effects */
+.subcategory-scroll-wrapper {
+    position: relative;
+    flex: 1;
+    order: 2;
+    overflow: hidden;
+}
+
+/* Fade effects using pseudo-elements on wrapper */
+.subcategory-scroll-wrapper::before,
+.subcategory-scroll-wrapper::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 50px;
+    pointer-events: none;
+    z-index: 5;
+    transition: opacity var(--transition-normal);
+}
+
+.subcategory-scroll-wrapper::before {
+    right: 0;
+    background: linear-gradient(to left, var(--secondary-bg) 0%, transparent 100%);
+    opacity: 1;
+}
+
+.subcategory-scroll-wrapper::after {
+    left: 0;
+    background: linear-gradient(to right, var(--secondary-bg) 0%, transparent 100%);
+    opacity: 0;
+}
+
+/* Fade overlay state classes - for JS control of pseudo-element fade effects */
+.subcategory-scroll-wrapper.has-fade-right::before {
+    opacity: 1;
+}
+
+.subcategory-scroll-wrapper.no-fade-right::before {
+    opacity: 0;
+}
+
+.subcategory-scroll-wrapper.has-fade-left::after {
+    opacity: 1;
+}
+
+.subcategory-scroll-wrapper.no-fade-left::after {
+    opacity: 0;
+}
+
+.subcategory-scroll {
+    display: flex;
+    gap: 0.75rem;
+    padding: 0.5rem 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+}
+
+.subcategory-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+/* Fade Overlays - Legacy styles removed, using pseudo-elements now */
+
+/* Mobile-First Button Styling */
+.subcategory-btn {
+    flex-shrink: 0;
+    min-height: 44px;
+    padding: 0.75rem 1.25rem;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 50px;
+    color: var(--text-secondary);
+    font-family: inherit;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.subcategory-btn:hover {
+    border-color: var(--accent-gold);
+    color: var(--accent-gold-light);
+    transform: translateY(-1px);
+}
+
+.subcategory-btn.active {
+    background: var(--gradient-gold);
+    border-color: var(--accent-gold);
+    color: var(--primary-bg);
+    font-weight: 600;
+}
+
+.subcategory-btn.active:hover {
+    color: var(--primary-bg);
+}
+
+/* ========================================
+   Menu Container - CSS Grid Layout
+   ======================================== */
+.menu-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    padding-bottom: 120px;
+}
+
+.fab {
+    position: fixed;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 1000;
+    border: 1px solid var(--accent-gold);
+    background: var(--card-bg);
+    color: var(--accent-gold);
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.45);
+    transition: transform var(--transition-normal), opacity var(--transition-normal), background var(--transition-normal), color var(--transition-normal);
+}
+
+.fab:hover {
+    background: var(--gradient-gold);
+    color: var(--primary-bg);
+    transform: translateY(-3px);
+}
+
+.fab:active {
+    transform: translateY(-1px) scale(0.98);
+}
+
+.fab-scroll-top {
+    bottom: 20px;
+    right: 20px;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.fab-scroll-top.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.speed-dial {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.speed-dial-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.speed-dial-action {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #fff;
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.45);
+    transform: translateY(10px) scale(0.9);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.28s ease, opacity 0.28s ease;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.speed-dial.show .speed-dial-action {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0) scale(1);
+}
+
+.speed-dial.show .speed-dial-action:nth-child(1) {
+    transition-delay: 0ms;
+}
+
+.speed-dial.show .speed-dial-action:nth-child(2) {
+    transition-delay: 70ms;
+}
+
+.speed-dial.show .speed-dial-action:nth-child(3) {
+    transition-delay: 140ms;
+}
+
+.speed-dial-action:hover {
+    transform: translateY(-2px) scale(1.03);
+}
+
+.action-whatsapp {
+    background: #25D366;
+}
+
+.action-facebook {
+    background: #1877F2;
+}
+
+.action-phone {
+    background: rgba(201, 169, 98, 0.18);
+    color: var(--accent-gold);
+    border: 1px solid var(--accent-gold);
+}
+
+.fab-chat {
+    position: static;
+}
+
+/* ========================================
+   Action Buttons Container (Surprise Me + Theme Toggle)
+   ======================================== */
+.action-buttons-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    padding: 1rem 1rem 0.5rem;
+    background-color: var(--secondary-bg);
+}
+
+/* ========================================
+   Theme Toggle Button
+   ======================================== */
+.theme-toggle-btn {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--card-bg);
+    border: 2px solid var(--accent-gold);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    box-shadow: var(--shadow-sm);
+}
+
+.theme-toggle-btn:hover {
+    background: var(--accent-gold);
+    transform: scale(1.1);
+    box-shadow: 0 4px 20px rgba(201, 169, 98, 0.4);
+}
+
+.theme-toggle-btn:active {
+    transform: scale(0.95);
+}
+
+.theme-icon {
+    font-size: 1.5rem;
+    transition: transform var(--transition-normal);
+}
+
+.theme-toggle-btn:hover .theme-icon {
+    transform: rotate(20deg);
+}
+
+/* ========================================
+   Surprise Me CTA Button
+   ======================================== */
+
+.surprise-me-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.875rem 2rem;
+    background: var(--gradient-gold);
+    border: 2px solid var(--accent-gold);
+    border-radius: 50px;
+    color: var(--primary-bg);
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    animation: pulse-gold 2s ease-in-out infinite;
+    box-shadow: 0 4px 20px rgba(201, 169, 98, 0.3);
+}
+
+@keyframes pulse-gold {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 4px 20px rgba(201, 169, 98, 0.3);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 6px 30px rgba(201, 169, 98, 0.5);
+    }
+}
+
+.surprise-me-btn:hover {
+    transform: scale(1.08);
+    box-shadow: 0 8px 40px rgba(201, 169, 98, 0.6);
+}
+
+.surprise-me-btn:active {
+    transform: scale(0.98);
+}
+
+.surprise-icon {
+    font-size: 1.2rem;
+    animation: sparkle 1.5s ease-in-out infinite;
+}
+
+@keyframes sparkle {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.7; transform: scale(1.2); }
+}
+
+/* ========================================
+   Surprise Me Modal
+   ======================================== */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(8px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 1rem;
+    opacity: 0;
+    transition: opacity var(--transition-normal);
+}
+
+.modal-overlay.visible {
+    display: flex;
+    opacity: 1;
+}
+
+.modal-card {
+    background: var(--card-bg);
+    border: 2px solid var(--accent-gold);
+    border-radius: 24px;
+    max-width: 400px;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    transform: scale(0.9);
+    transition: transform var(--transition-normal);
+}
+
+.modal-overlay.visible .modal-card {
+    transform: scale(1);
+}
+
+.modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--secondary-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+    color: var(--text-secondary);
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    z-index: 10;
+}
+
+.modal-close:hover {
+    background: var(--accent-gold);
+    border-color: var(--accent-gold);
+    color: var(--primary-bg);
+}
+
+.modal-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 1.5rem;
+}
+
+.modal-badge {
+    background: var(--gradient-gold);
+    color: var(--primary-bg);
+    padding: 0.5rem 1.5rem;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.modal-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 16px;
+    margin-bottom: 1rem;
+}
+
+.modal-image[style*="display: none"] {
+    margin-bottom: 0;
+}
+
+.modal-name {
+    color: var(--text-primary);
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+}
+
+.modal-description {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.modal-price {
+    background: rgba(201, 169, 98, 0.15);
+    color: var(--accent-gold);
+    padding: 0.5rem 1.25rem;
+    border-radius: 50px;
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+.modal-action-btn {
+    padding: 0.75rem 2.5rem;
+    background: var(--card-bg);
+    border: 2px solid var(--border-color);
+    border-radius: 50px;
+    color: var(--text-secondary);
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+}
+
+.modal-action-btn:hover {
+    border-color: var(--accent-gold);
+    color: var(--accent-gold-light);
+    background: var(--secondary-bg);
+}
+
+/* ========================================
+   Menu Item Card Styles
+   ======================================== */
+.menu-item {
+    background-color: var(--card-bg);
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    transition: all var(--transition-normal);
+    animation: fadeInUp 0.5s ease forwards;
+    animation-delay: var(--stagger-delay, 0ms);
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.menu-item:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--accent-gold);
+}
+
+.menu-item-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform var(--transition-slow);
+}
+
+.menu-item:hover .menu-item-image {
+    transform: scale(1.05);
+}
+
+/* Menu item without image - adjust layout */
+.menu-item.no-image {
+    border-radius: 16px;
+}
+
+.menu-item.no-image .menu-item-content {
+    padding-top: 1.5rem;
+}
+
+.menu-item-content {
+    padding: 1.25rem;
+}
+
+.menu-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.75rem;
+    gap: 0.5rem;
+}
+
+.menu-item-name {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    flex: 1;
+}
+
+.menu-item-price {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--accent-gold);
+    background: rgba(201, 169, 98, 0.1);
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    white-space: nowrap;
+}
+
+.menu-item-description {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.menu-item-category {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.25rem 0.75rem;
+    background-color: var(--secondary-bg);
+    border-radius: 12px;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* ========================================
+   Empty State Styles
+   ======================================== */
+.empty-state {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 4rem 2rem;
+    color: var(--text-muted);
+}
+
+.empty-state-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    opacity: 0.5;
+}
+
+.empty-state-text {
+    font-size: 1.25rem;
+}
+
+/* ========================================
+   Footer Styles
+   ======================================== */
+.footer {
+    text-align: center;
+    padding: 2rem;
+    background-color: var(--secondary-bg);
+    border-top: 1px solid var(--border-color);
+    margin-top: 2rem;
+}
+
+.footer p {
+    color: var(--text-muted);
+    font-size: 0.875rem;
+}
+
+/* ========================================
+   Responsive Design
+   ======================================== */
+@media (max-width: 768px) {
+    .brand-name {
+        font-size: 1.5rem;
+    }
+
+    .logo-icon {
+        font-size: 2rem;
+    }
+
+    .filter-container {
+        gap: 0.5rem;
+    }
+
+    .filter-btn {
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    .search-wrapper {
+        width: 100%;
+        order: 3;
+    }
+
+    .search-input {
+        width: 100%;
+    }
+
+    /* Mobile-optimized subcategory bar */
+    .subcategory-bar {
+        padding: 0 0.25rem;
+    }
+
+    .scroll-arrow {
+        width: 32px;
+        height: 32px;
+    }
+
+    .scroll-arrow-left {
+        left: 0.15rem;
+    }
+
+    .scroll-arrow-right {
+        right: 0.15rem;
+    }
+
+    .scroll-arrow svg {
+        width: 16px;
+        height: 16px;
+    }
+
+    .subcategory-scroll-wrapper {
+        margin: 0 2rem;
+    }
+
+    .subcategory-scroll-wrapper::before,
+    .subcategory-scroll-wrapper::after {
+        width: 30px;
+    }
+
+    .subcategory-btn {
+        min-height: 44px;
+        padding: 0.65rem 1rem;
+        font-size: 0.85rem;
+    }
+
+    .menu-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .menu-item {
+        border-radius: 10px;
+    }
+
+    .menu-item-content {
+        padding: 12px;
+    }
+
+    .menu-item-header {
+        margin-bottom: 5px;
+        gap: 6px;
+        align-items: flex-start;
+    }
+
+    .menu-item-name {
+        font-size: 0.95rem;
+        margin-bottom: 0;
+    }
+
+    .menu-item-price {
+        font-size: 0.95rem;
+        padding: 0.2rem 0.55rem;
+    }
+
+    .menu-item-description {
+        font-size: 0.75rem;
+        margin: 0;
+        line-height: 1.35;
+        display: -webkit-box;
+        line-clamp: 2;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    .menu-item-category {
+        margin-top: 8px;
+        padding: 0.2rem 0.55rem;
+        border-radius: 10px;
+        font-size: 0.65rem;
+        letter-spacing: 0.5px;
+    }
+
+    .fab {
+        width: 45px;
+        height: 45px;
+    }
+
+    .fab-scroll-top {
+        right: 10px;
+    }
+
+    .speed-dial {
+        left: 10px;
+    }
+
+    .speed-dial-action {
+        width: 40px;
+        height: 40px;
+    }
+
+    .menu-item-image {
+        height: 110px;
+        border-radius: 10px;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .menu-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* ========================================
+   Scrollbar Styling
+   ======================================== */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--primary-bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-gold);
+}

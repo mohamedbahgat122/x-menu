@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>كافيه ومطعم أكس | القائمة الإلكترونية</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="splash-screen">
+        <img src="./image/20-removebg-preview.png" alt="شعار كافيه أكس" class="splash-logo">
+    </div>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo-section">
+                <img class="brand-logo logo-small" src="./image/20-removebg-preview.png" alt="شعار كافيه أكس">
+                <h1 class="brand-name">كافيه ومطعم أكس</h1>
+            </div>
+            <p class="tagline">تجربة طعام فاخرة بأجواء مميزة</p>
+        </div>
+    </header>
+
+    <!-- Surprise Me CTA & Theme Toggle -->
+    <div class="action-buttons-container">
+        <button class="surprise-me-btn" id="surpriseMeBtn">
+            <span class="surprise-icon">✨</span>
+            <span> أختارلي </span>
+        </button>
+        <button class="theme-toggle-btn" id="themeToggleBtn" aria-label="تبديل الوضع">
+            <span class="theme-icon" id="themeIcon">☀️</span>
+        </button>
+    </div>
+
+    <!-- Filter Section -->
+    <section class="filter-section">
+        <div class="filter-container">
+            <button class="filter-btn" data-category="all">
+                <span>الكل</span>
+            </button>
+            <button class="filter-btn active" data-category="food" id="default-tab">
+                <span>🍽️</span>
+                <span>طعام</span>
+            </button>
+            <button class="filter-btn" data-category="drinks">
+                <span>☕</span>
+                <span>مشروبات</span>
+            </button>
+            <div class="search-wrapper">
+                <input type="text" id="searchInput" class="search-input" placeholder="ابحث في القائمة...">
+                <span class="search-icon">🔍</span>
+            </div>
+        </div>
+
+        <!-- Sub-category Filter Bar (Food Only) -->
+        <div class="subcategory-bar" id="subcategoryBar">
+            <button class="scroll-arrow scroll-arrow-left" id="scrollLeft" aria-label="Scroll left">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+            </button>
+            <div class="subcategory-scroll-wrapper">
+                <div class="subcategory-scroll" id="subcategoryScroll">
+                    <button class="subcategory-btn active" data-subcategory="all" data-category="food">الكل</button>
+                    <button class="subcategory-btn" data-subcategory="shwarma" data-category="food">الشاورما</button>
+                    <button class="subcategory-btn" data-subcategory="fatta" data-category="food">فتة الشــاورمــا</button>
+                    <button class="subcategory-btn" data-subcategory="meals" data-category="food">وجبات الشاورما</button>
+                    <button class="subcategory-btn" data-subcategory="potato" data-category="food">البطاطس</button>
+                    <button class="subcategory-btn" data-subcategory="western" data-category="food">الغــــربــي</button>
+                    <button class="subcategory-btn" data-subcategory="grills" data-category="food">المشويات</button>
+                    <button class="subcategory-btn" data-subcategory="fried_chicken" data-category="food">فراخ مقلية</button>
+                    <button class="subcategory-btn" data-subcategory="rizo" data-category="food">ريـــــــــزو</button>
+                    <button class="subcategory-btn" data-subcategory="addons" data-category="food">الاضافات</button>
+                </div>
+            </div>
+            <button class="scroll-arrow scroll-arrow-right" id="scrollRight" aria-label="Scroll right">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Sub-category Filter Bar (Drinks Only) -->
+        <div class="subcategory-bar" id="drinksSubcategoryBar">
+            <button class="scroll-arrow scroll-arrow-left" id="drinksScrollLeft" aria-label="Scroll left">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+            </button>
+            <div class="subcategory-scroll-wrapper">
+                <div class="subcategory-scroll" id="drinksSubcategoryScroll">
+                    <button class="subcategory-btn active" data-subcategory="all" data-category="drinks">الكل</button>
+                    <button class="subcategory-btn" data-subcategory="hot-coffee" data-category="drinks">Hot Coffee</button>
+                    <button class="subcategory-btn" data-subcategory="milk-shake" data-category="drinks">Milk Shake</button>
+                    <button class="subcategory-btn" data-subcategory="juice" data-category="drinks">Juice</button>
+                    <button class="subcategory-btn" data-subcategory="frappuccino" data-category="drinks">Frappuccino</button>
+                    <button class="subcategory-btn" data-subcategory="hot-drink" data-category="drinks">Hot Drink</button>
+                    <button class="subcategory-btn" data-subcategory="cold-coffee" data-category="drinks">Cold Coffee</button>
+                    <button class="subcategory-btn" data-subcategory="smoothie" data-category="drinks">Smoothie</button>
+                    <button class="subcategory-btn" data-subcategory="smoking" data-category="drinks">Smoking</button>
+                    <button class="subcategory-btn" data-subcategory="soft_drinks" data-category="drinks">Soft Drinks</button>
+                </div>
+            </div>
+            <button class="scroll-arrow scroll-arrow-right" id="drinksScrollRight" aria-label="Scroll right">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+            </button>
+        </div>
+    </section>
+
+    <!-- Menu Container -->
+    <main class="menu-container" id="menuContainer">
+        <!-- Menu items will be dynamically rendered here -->
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2026 كافيه ومطعم أكس - جميع الحقوق محفوظة</p>
+        <p class="developer-credit">
+    تم انشاء وتطوير الموقع بواسطة المهندس / محمد بهجت 
+    | 
+    <a href="https://wa.me/201035624486" target="_blank" class="whatsapp-link">تواصل معي <span style="font-size: 1.2em;">💬</span></a>
+</p>
+
+    </footer>
+
+    <!-- Surprise Me Modal -->
+    <div class="modal-overlay" id="surpriseModal">
+        <div class="modal-card">
+            <button class="modal-close" id="modalClose" aria-label="إغلاق">×</button>
+            <div class="modal-content">
+                <div class="modal-badge">اقتراح اليوم</div>
+                <img class="modal-image" id="modalImage" src="" alt="">
+                <h3 class="modal-name" id="modalName"></h3>
+                <p class="modal-description" id="modalDescription"></p>
+                <span class="modal-price" id="modalPrice"></span>
+                <button class="modal-action-btn" id="modalCloseBtn">إغلاق</button>
+            </div>
+        </div>
+    </div>
+
+    <button class="fab fab-scroll-top" id="scrollTopBtn" aria-label="العودة للأعلى">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 19V5"></path>
+            <polyline points="5 12 12 5 19 12"></polyline>
+        </svg>
+    </button>
+
+    <div class="speed-dial" id="speedDial">
+        <div class="speed-dial-actions" id="speedDialActions">
+            <a class="speed-dial-action action-whatsapp" href="https://wa.me/201036781097" target="_blank" rel="noopener" aria-label="WhatsApp">
+                <span>WA</span>
+            </a>
+            <a class="speed-dial-action action-facebook" href="https://www.facebook.com/profile.php?id=61577541707099" target="_blank" rel="noopener" aria-label="Facebook">
+                <span>f</span>
+            </a>
+            <a class="speed-dial-action action-phone" href="tel:+0 10 36781097" aria-label="اتصال">
+                <span>☎</span>
+            </a>
+        </div>
+        <button class="fab fab-chat" id="chatFab" aria-label="تواصل معنا">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"></path>
+            </svg>
+        </button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
