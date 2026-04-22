@@ -403,7 +403,7 @@ const menuItems = [
         id: 12,
         name: "  ربع فرخه مشوية ورك",
         description: " ",
-        price: "110 ج.م",
+        price: "130 ج.م",
         image: "./image/5.1.jpg",
         category: "food",
         subCategory: "grills"
@@ -413,7 +413,7 @@ const menuItems = [
         id: 12,
         name: " ربع  فرخة مشوية صدر",
         description: " ",
-        price: "130 ج.م",
+        price: "140 ج.م",
         image: "./image/5.2.png",
         category: "food",
         subCategory: "grills"
